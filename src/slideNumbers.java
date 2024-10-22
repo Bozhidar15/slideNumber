@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class PuzzleSolver {
+public class slideNumbers {
     private static final int[] dx = {0, 0, -1, 1}; // left, right, up, down
     private static final int[] dy = {-1, 1, 0, 0};
     private static final String[] moves = {"left", "right", "up", "down"};

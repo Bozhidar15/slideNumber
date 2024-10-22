@@ -98,7 +98,7 @@ public class PuzzleSolver {
         int f = g + state.manhattanDistance;
         if (f > bound) return f;
         if (state.isGoal()) {
-            finalPath = state.path; // Запазваме пътя, когато намерим решението
+            finalPath = state.path;
             return -1;
         }
 
@@ -151,9 +151,9 @@ public class PuzzleSolver {
         if (result == -1) {
             System.out.println(result);
         } else {
-            System.out.println(result); // Отпечатване на дължината на оптималния път
+            System.out.println(result);
             for (String move : finalPath) {
-                System.out.println(move); // Отпечатване на стъпките
+                System.out.println(move);
             }
             System.out.printf("Time taken: %.2f seconds%n", (endTime - startTime) / 1000.0);
         }

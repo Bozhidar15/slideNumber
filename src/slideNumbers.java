@@ -5,19 +5,21 @@ public class slideNumbers {
     private static final int[] dy = {-1, 1, 0, 0};
     private static final String[] moves = {"left", "right", "up", "down"};
     private static final int INF = Integer.MAX_VALUE;
-    private static List<String> finalPath; // Запазваме финалния път
+    private static List<String> finalPath;
 
     static class State {
         int[][] board;
-        int N, zeroRow, zeroCol, manhattanDistance;
+        int N, zeroRow, zeroCol, manhattanDistance, goalZeroRow, goalZeroCol;
         List<String> path;
 
-        State(int[][] board, int zeroRow, int zeroCol, List<String> path) {
+        State(int[][] board, int zeroRow, int zeroCol, List<String> path, int goalZeroRow, int goalZeroCol) {
             this.board = board;
             this.N = board.length;
             this.zeroRow = zeroRow;
             this.zeroCol = zeroCol;
             this.path = new ArrayList<>(path);
+            this.goalZeroRow = goalZeroRow;
+            this.goalZeroCol = goalZeroCol;
             this.manhattanDistance = calculateManhattan(board);
         }
 
@@ -40,8 +42,11 @@ public class slideNumbers {
             int value = 1;
             for (int i = 0; i < N; i++) {
                 for (int j = 0; j < N; j++) {
-                    if (i == N - 1 && j == N - 1) return board[i][j] == 0;
-                    if (board[i][j] != value++) return false;
+                    if (i == goalZeroRow && j == goalZeroCol) {
+                        if (board[i][j] != 0) return false;
+                    } else {
+                        if (board[i][j] != value++) return false;
+                    }
                 }
             }
             return true;
@@ -59,7 +64,7 @@ public class slideNumbers {
             List<String> newPath = new ArrayList<>(path);
             newPath.add(moves[dir]);
 
-            return new State(newBoard, newRow, newCol, newPath);
+            return new State(newBoard, newRow, newCol, newPath, goalZeroRow, goalZeroCol);
         }
 
         int[][] copyBoard() {
@@ -122,11 +127,12 @@ public class slideNumbers {
         System.out.println("Please enter board size: ");
         Scanner scanner = new Scanner(System.in);
         int N = (int) Math.sqrt(scanner.nextInt() + 1);
-        System.out.println("Enter the position of the free tile: ");
+        System.out.println("Enter the position of the free tile (-1 for default bottom-right position): ");
         int zeroIndex = scanner.nextInt();
 
         int[][] board = new int[N][N];
         int zeroRowPosition = -1, zeroColPosition = -1;
+
         System.out.println("Enter the board values: ");
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
@@ -138,12 +144,16 @@ public class slideNumbers {
             }
         }
 
-        if (zeroIndex != -1) {
-            zeroRowPosition = zeroIndex / N;
-            zeroColPosition = zeroIndex % N;
+        int goalZeroRow, goalZeroCol;
+        if (zeroIndex == -1) {
+            goalZeroRow = N - 1;
+            goalZeroCol = N - 1;
+        } else {
+            goalZeroRow = zeroIndex / N;
+            goalZeroCol = zeroIndex % N;
         }
 
-        State initialState = new State(board, zeroRowPosition, zeroColPosition, new ArrayList<>());
+        State initialState = new State(board, zeroRowPosition, zeroColPosition, new ArrayList<>(), goalZeroRow, goalZeroCol);
         long startTime = System.currentTimeMillis();
         int result = idaStar(initialState);
         long endTime = System.currentTimeMillis();

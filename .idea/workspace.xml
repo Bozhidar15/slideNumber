@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="757e327b-f1f1-404a-97c9-d2fc416eefaa" name="Changes" comment="final">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PuzzleSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/slideNumbers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/slideNumbers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/slideNumbers.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +71,7 @@
       <updated>1729525017420</updated>
       <workItem from="1729525019423" duration="1203000" />
       <workItem from="1729589401525" duration="14918000" />
+      <workItem from="1729663993283" duration="2736000" />
     </task>
     <task id="LOCAL-00001" summary="final">
       <created>1729604643020</created>

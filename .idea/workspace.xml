@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="757e327b-f1f1-404a-97c9-d2fc416eefaa" name="Changes" comment="change o position">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/slideNumbers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/slideNumbers.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +71,10 @@
       <workItem from="1729525019423" duration="1203000" />
       <workItem from="1729589401525" duration="14918000" />
       <workItem from="1729663993283" duration="4443000" />
+      <workItem from="1730028840163" duration="4000" />
+      <workItem from="1730029287681" duration="17000" />
+      <workItem from="1730029327784" duration="3000" />
+      <workItem from="1730029378747" duration="596000" />
     </task>
     <task id="LOCAL-00001" summary="final">
       <created>1729604643020</created>
